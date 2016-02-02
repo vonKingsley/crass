@@ -43,8 +43,11 @@ module Crass
         end
 
         opts.unknown_args do |args|
-          abort usage if args.empty?
-          Director.runner(args[0], options)
+          if args.empty?
+            puts usage
+          else
+            Director.runner(args[0], options)
+          end
         end
       end
     rescue ex : OptionParser::MissingOption

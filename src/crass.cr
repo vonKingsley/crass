@@ -1,10 +1,5 @@
 require "./crass/**"
 
 module Crass
-
-  def self.sass_version
-    String.new(LibSass.libsass_version)
-  end
-
+  Crass::CLI.run
 end
-Crass::CLI.run
