@@ -1,0 +1,16 @@
+
+%link-base {
+  color       : #FFFFFF;
+  float       : right;
+  font-family : Arial, Tahoma;
+  font-size   : 1.3rem;
+  line-height : 2.3rem;
+}
+
+a {
+  @extend %link-base;
+
+  &:hover{
+    text-decoration   : underline;
+  }
+}

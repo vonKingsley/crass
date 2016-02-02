@@ -1,0 +1,7 @@
+%checkbox-base {
+  border-radius : 0.3rem;
+}
+
+input[type='checkbox'] {
+  @extend %checkbox-base;
+}

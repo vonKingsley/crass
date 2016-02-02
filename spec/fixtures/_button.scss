@@ -1,0 +1,35 @@
+%button-base {
+  border      : 1px solid #0B71B9;
+  color       : #FFFFFF;
+  font-family : Arial, Tahoma;
+  font-size   :1.3rem;
+  font-weight : bold;
+  height      : 2.6rem;
+  line-height : 1.8rem;
+  padding     : 0.3rem 1.5rem;
+  text-shadow : 0 -.1rem 0 rgba(0,0,0,0.3);
+}
+
+button {
+  @extend %button-base;
+
+  &:disabled {
+    border-color      : #C8C8C8;
+    background-color  : #F5F5F5;
+    background-image  : none;
+    color             : #B4B4B4;
+    cursor            : not-allowed !important;
+    text-shadow       : 0 0.1rem 0 rgba(255, 255, 255, 0.75);
+    pointer-events    : none;
+  }
+
+  &:hover {
+    border-color      : #0B71B9;
+    background-color  : #77BCE7;
+    background-image  : none;
+}
+
+  &:active {
+    border-color : #294C69;
+  }
+}

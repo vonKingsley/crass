@@ -1,0 +1,13 @@
+$five: 5px;
+
+#main{
+  margin: $fiver;
+}
+
+.myclass{
+  height $five;
+}
+
+#adder{
+  padding: 1px - 5px;
+}
