@@ -1,11 +1,9 @@
 module Crass
   module Context
     class File
-
       property :sass
 
-
-      def initialize(@sass : ::File, new_options = Crass::Options.new : Crass::Options)
+      def initialize(@sass : ::File, new_options : Crass::Options = Crass::Options.new)
         @file_ctx = LibSass.sass_make_file_context(@sass.path)
         @ctx = LibSass.sass_file_context_get_context(@file_ctx)
         options = options.merge(new_options)
@@ -19,8 +17,8 @@ module Crass
         new(::File.new(filename))
       end
 
-      #compile the file into css and return the results as a string
-      #Im sure a string isn't efficient.
+      # compile the file into css and return the results as a string
+      # Im sure a string isn't efficient.
       def compile
         result = LibSass.sass_compile_file_context(@file_ctx)
         if result == 0
@@ -43,8 +41,8 @@ module Crass
         String.new(LibSass.sass_context_get_error_message(@ctx))
       end
 
-      #Use the compiler if you wish to manually parse and execute.
-      #This will give you finer control over compiling the scss.
+      # Use the compiler if you wish to manually parse and execute.
+      # This will give you finer control over compiling the scss.
       def compiler
         Crass::Compiler.new(LibSass.sass_make_file_compiler(@file_ctx))
       end
@@ -57,7 +55,7 @@ module Crass
         Crass::Options.new(LibSass.sass_file_context_get_options(@file_ctx))
       end
 
-      #Releases the file context
+      # Releases the file context
       def delete
         LibSass.sass_delete_file_context(@file_ctx)
       end
@@ -69,7 +67,6 @@ module Crass
       def inspect
         "#<#{self.class.name}:0x##{object_id.to_s(16)}>"
       end
-
     end
   end
 end

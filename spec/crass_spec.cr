@@ -6,5 +6,4 @@ describe Crass do
     ver = Crass.sass_version
     ver.should match(/\d+.\d+.\d+/)
   end
-
 end

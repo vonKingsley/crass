@@ -2,7 +2,7 @@ module Crass
   class Options
     getter :options, :lib_options
 
-    def initialize(@lib_options = LibSass.sass_make_options : LibSass::SassOptions*)
+    def initialize(@lib_options : LibSass::SassOptions* = LibSass.sass_make_options)
     end
 
     def self.new(hash : Hash(Symbol, Nil | Crass::SassOutputStyle | String | Int32 | Bool))
@@ -25,9 +25,9 @@ module Crass
       inspect
     end
 
-    #Contexts will have their own set of defaults when said context is created. 
-    #Things like input_path get overwritten if you pass in a new options.
-    #This method will merge the options self gets others options
+    # Contexts will have their own set of defaults when said context is created.
+    # Things like input_path get overwritten if you pass in a new options.
+    # This method will merge the options self gets others options
     def merge(other : Crass::Options)
       self_hash = self.options
       other_hash = other.options
@@ -57,7 +57,7 @@ module Crass
 
     {% end %}
 
-    #returns the list of current options
+    # returns the list of current options
     def options
       options_hash = Hash(Symbol, Nil | String | Int32 | Bool | Crass::SassOutputStyle).new
       {% for meth in OPTIONS_DEF_HASH.keys %}
@@ -66,7 +66,7 @@ module Crass
       options_hash
     end
 
-    #Use a hash to create the options, may come in handy some day
+    # Use a hash to create the options, may come in handy some day
     macro def config_from_hash(hash) : Crass::Options
       {% for meth, type in OPTIONS_DEF_HASH %}
           self.{{meth.id}}=(hash[{{meth}}] as {{type.id}}) unless hash[{{meth}}].nil?

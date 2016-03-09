@@ -6,16 +6,15 @@ require "colorize"
 
 module Crass
   module CLI
-
     def self.usage
       <<-USAGE
-      #{PROGRAM_NAME}   Input (Directory, File, Quoted String)
+#{PROGRAM_NAME}   Input (Directory, File, Quoted String)
 
-      -o | --ouptut   Output_file, default: STDOUT
-      -s | --style    One of [NESTED, EXPANDED, COMPACT, COMPRESSED], default: NESTED
-      -v | --version  Version information
-      -h | --help     Help me
-      USAGE
+-o | --ouptut   Output_file, default: STDOUT
+-s | --style    One of [NESTED, EXPANDED, COMPACT, COMPRESSED], default: NESTED
+-v | --version  Version information
+-h | --help     Help me
+USAGE
     end
 
     def self.run
@@ -53,11 +52,9 @@ module Crass
     rescue ex : OptionParser::MissingOption
       puts "Missing option parameter required.".colorize(:red)
       puts usage
-
     rescue ex : OptionParser::InvalidOption
       puts "Could not find the requested option, it was ignored.".colorize(:red)
       puts usage
     end
-
   end
 end

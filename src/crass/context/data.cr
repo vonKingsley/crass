@@ -5,10 +5,9 @@ end
 module Crass
   module Context
     class Data
-
       property :sass
 
-      def initialize(@sass : String, new_options = Crass::Options.new : Crass::Options)
+      def initialize(@sass : String, new_options : Crass::Options = Crass::Options.new)
         sass_string = LibC.malloc(@sass.bytesize) as UInt8*
         LibC.strcpy(sass_string, @sass)
         @data_ctx = LibSass.sass_make_data_context(sass_string)

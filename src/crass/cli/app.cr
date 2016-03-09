@@ -1,8 +1,7 @@
 module Crass
   module CLI
     class App
-
-      #searches the directory for scss file and converts them to css,
+      # searches the directory for scss file and converts them to css,
       def self.directory_convert(file_array, options)
         file_array.each do |file|
           file_convert file, options if File.extname(file) == ".scss"
@@ -25,7 +24,7 @@ module Crass
           puts output_css
           puts "\n"
         end
-      rescue ex: SassError
+      rescue ex : SassError
         puts filename.colorize(:red)
         puts ex.message.colorize(:red)
       rescue file_error : Errno
@@ -38,7 +37,6 @@ module Crass
         output_css = data_ctx.compile if data_ctx
         puts output_css
       end
-
     end
   end
 end

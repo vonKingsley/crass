@@ -1,6 +1,5 @@
 module Crass
   module Sass2Scss
-
     def self.convert(input : T, output : String?, options : Crass::Sass2Scss::Options)
       case input
       when File
@@ -12,10 +11,9 @@ module Crass
     end
 
     class Converter
-
       getter :scss
 
-      def initialize(@input : T, @output = nil : String?, @options = 0 : Int32)
+      def initialize(@input : T, @output : String? = nil, @options : Int32 = 0)
         @scss = ""
       end
 
@@ -30,7 +28,6 @@ module Crass
       private def convert_to_scss(lines)
         @scss = String.new(LibSass.sass2scss(lines, @options))
       end
-
     end
   end
 end

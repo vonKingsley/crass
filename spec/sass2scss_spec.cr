@@ -31,7 +31,7 @@ describe Crass::Sass2Scss do
     File.delete(output_file)
   end
 
-  it "takes a sass string and writes the conversion to a output file" do 
+  it "takes a sass string and writes the conversion to a output file" do
     output_file = "#{FIXTURE_DIR}/string.scss"
     opts = Crass::Sass2Scss::Options.new("MINIFIED", "KEEP")
     str = "#myid
@@ -42,5 +42,4 @@ describe Crass::Sass2Scss do
     File.exists?(output_file).should be_true
     File.delete(output_file)
   end
-
 end

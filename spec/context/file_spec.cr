@@ -9,7 +9,6 @@ def get_bad_sass_file
 end
 
 describe Crass::Context::File do
-
   it "it initializes with a File" do
     file = Crass::Context::File.new(::File.new(get_sass_file))
     file.should be_a(Crass::Context::File)
@@ -22,9 +21,9 @@ describe Crass::Context::File do
 
   it "takes options" do
     options = Crass::Options.configure do |conf|
-       conf.precision = 8
-       conf.indent = ""
-       conf.output_style = Crass::SassOutputStyle::COMPRESSED
+      conf.precision = 8
+      conf.indent = ""
+      conf.output_style = Crass::SassOutputStyle::COMPRESSED
     end
     file = Crass::Context::File.new(get_sass_file, options)
     file.compile

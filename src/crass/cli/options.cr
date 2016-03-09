@@ -1,7 +1,6 @@
 module Crass
   module CLI
     class Options
-
       property :output_file, :style, :show_filename
 
       def initialize
@@ -17,8 +16,6 @@ module Crass
         end
         @opts
       end
-
     end
-
   end
 end

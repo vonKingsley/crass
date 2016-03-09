@@ -1,7 +1,6 @@
 module Crass
   module Sass2Scss
     class Options
-
       @output_style : OutputStyle
       @comment_style : CommentStyle
 
@@ -22,7 +21,7 @@ module Crass
       property :output_style, :comment_style
 
       def initialize(output_style : String, comment_style : String)
-        #defaults
+        # defaults
         @output_style = OutputStyle::MINIFIED
         @comment_style = CommentStyle::KEEP
         self.output_style = output_style
