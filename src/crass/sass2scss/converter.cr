@@ -1,5 +1,6 @@
 module Crass
   module Sass2Scss
+
     def self.convert(input : T, output : String?, options : Crass::Sass2Scss::Options)
       case input
       when File
@@ -7,10 +8,13 @@ module Crass
       when String
         converter = Crass::Sass2Scss::SassString.new(input, output, options.style)
       end
-      converter as Converter
+      converter.as(Converter)
     end
 
     class Converter
+
+      @input : File|String
+
       getter :scss
 
       def initialize(@input : T, @output : String? = nil, @options : Int32 = 0)

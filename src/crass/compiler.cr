@@ -1,5 +1,8 @@
 module Crass
   class Compiler
+
+    @compiler : Pointer(LibSass::SassCompiler)
+
     def initialize(@compiler)
     end
 
