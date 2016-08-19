@@ -12,7 +12,8 @@ module Crass
         LibC.strcpy(sass_string, @sass)
         @data_ctx = LibSass.sass_make_data_context(sass_string)
         @ctx = LibSass.sass_data_context_get_context(@data_ctx)
-        options = options.merge(new_options)
+        opts = options.merge(new_options)
+        options = opts
       end
 
       def compile

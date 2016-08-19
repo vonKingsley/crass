@@ -6,7 +6,8 @@ module Crass
       def initialize(@sass : ::File, new_options : Crass::Options = Crass::Options.new)
         @file_ctx = LibSass.sass_make_file_context(@sass.path)
         @ctx = LibSass.sass_file_context_get_context(@file_ctx)
-        options = options.merge(new_options)
+        opts = options.merge(new_options)
+        options = opts
       end
 
       def self.new(filename : String, options : Crass::Options)
