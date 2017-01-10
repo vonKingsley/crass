@@ -6,7 +6,7 @@ module Crass
       def initialize(input : File, output : String? = nil, options : Int32 = 0)
         super
         lines = [] of String
-        input.each_line do |line|
+        input.each_line(false) do |line|
           lines << line
         end
         convert_to_scss(lines.join)
