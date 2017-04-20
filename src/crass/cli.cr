@@ -22,8 +22,8 @@ USAGE
         options = Options.new
 
         opts.banner = "#{PROGRAM_NAME} [Input] [Options]"
-        opts.on("-F", "--filenames", "show filenames on STDOUT") do |show_filename|
-          options.show_filename = show_filename
+        opts.on("-F", "--filenames", "show filenames on STDOUT") do
+          options.show_filename = true
         end
         opts.on("-o OUTPUT", "--output OUTPUT", "Output path") do |output|
           options.output_file = output

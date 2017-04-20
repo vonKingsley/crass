@@ -15,12 +15,12 @@ module Crass
         opts = options.sass_options
         file_ctx = Crass::Context::File.new(filename, opts) if opts
         output_css = file_ctx.compile if file_ctx
+        puts filename.colorize(:red) if options.show_filename
         if output_file = options.output_file
           new_file = "/#{File.basename(filename, ".scss")}.css"
           out_file = output_file + new_file
           File.write(out_file, output_css)
         else
-          puts filename.colorize(:red) if options.show_filename
           puts output_css
           puts "\n"
         end

@@ -1,13 +1,15 @@
 module Crass
   module CLI
     class Options
+      @opts : Crass::Options?
+
       property output_file : String , style : String, show_filename : Bool
 
       def initialize
         @show_filename = false
         @output_file = ""
         @style = "NESTED"
-        #@opts = nil # Crass::Options.new
+        @opts = nil
       end
 
       def sass_options
