@@ -34,10 +34,11 @@ module Crass
       merged = self_hash.merge(other_hash)
       config_from_hash merged
     end
-
+ # need to figure out how to deal with the new incldue_path that takes a int
+ #, :include_path => String,
     OPTIONS_DEF_HASH = {:precision => Int32, :output_style => Crass::SassOutputStyle, :source_comments => Bool, :source_map_embed => Bool,
       :source_map_contents => Bool, :omit_source_map_url => Bool, :is_indented_syntax_src => Bool,
-      :indent => String, :linefeed => String, :input_path => String, :output_path => String, :plugin_path => String, :include_path => String,
+      :indent => String, :linefeed => String, :input_path => String, :output_path => String,
       :source_map_file => String, :source_map_root => String}
 
     {% for meth, type in OPTIONS_DEF_HASH %}

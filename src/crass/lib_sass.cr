@@ -1,6 +1,6 @@
 require "./output_style"
-@[Link("sass")]
 
+@[Link("sass")]
 lib LibSass
   enum SassCompilerState
     CREATED
@@ -82,8 +82,9 @@ lib LibSass
   fun sass_option_get_linefeed(opt : SassOptions*) : UInt8*
   fun sass_option_get_input_path(opt : SassOptions*) : UInt8*?
   fun sass_option_get_output_path(opt : SassOptions*) : UInt8*?
-  fun sass_option_get_plugin_path(opt : SassOptions*) : UInt8*?
-  fun sass_option_get_include_path(opt : SassOptions*) : UInt8*?
+#  fun sass_option_get_plugin_path(opt : SassOptions*) : UInt8*?
+  fun sass_option_get_include_path_size(opt : SassOptions*) : LibC::SizeT
+  fun sass_option_get_include_path(opt : SassOptions*, i : UInt32) : UInt8*?
   fun sass_option_get_source_map_file(opt : SassOptions*) : UInt8*?
   fun sass_option_get_source_map_root(opt : SassOptions*) : UInt8*?
   fun sass_option_get_c_headers(opt : SassOptions*)

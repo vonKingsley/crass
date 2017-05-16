@@ -18,8 +18,8 @@ describe Crass::Options do
     opts.linefeed.should eq("\n")
     opts.input_path.should be_nil
     opts.output_path.should be_nil
-    opts.plugin_path.should be_nil
-    opts.include_path.should be_nil
+    #opts.plugin_path.should be_nil
+    #opts.include_path.should be_nil
     opts.source_map_file.should be_nil
     opts.source_map_root.should be_nil
   end
@@ -57,13 +57,13 @@ describe Crass::Options do
 
   it "updates the output hash" do
     opts = Crass::Options.new
-    opts.options[:plugin_path].should be_nil
-    opts.plugin_path = "/my_plugins"
+    #opts.options[:plugin_path].should be_nil
+    #opts.plugin_path = "/my_plugins"
     opts.precision = 8
     opts.options[:precision].should eq(8)
     opts.precision = 10
     opts.options[:precision].should eq(10)
-    opts.options[:plugin_path].should eq("/my_plugins")
+    #opts.options[:plugin_path].should eq("/my_plugins")
   end
 
   it "merges two options together" do
