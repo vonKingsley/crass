@@ -68,7 +68,7 @@ module Crass
     end
 
     # Use a hash to create the options, may come in handy some day
-    macro def config_from_hash(hash) : Crass::Options
+    def config_from_hash(hash) : Crass::Options
       {% for meth, type in OPTIONS_DEF_HASH %}
            self.{{meth.id}}=(hash[{{meth}}].as {{type.id}}) unless hash[{{meth}}].nil?
       {% end %}
