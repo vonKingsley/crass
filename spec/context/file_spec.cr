@@ -49,7 +49,7 @@ describe Crass::Context::File do
     compiler = file.compiler
     compiler.parse
     compiler.execute
-    expected_error = "Error: property \"height\" must be followed by a ':'\n        on line 8 of spec/fixtures/bad_spec.scss\n>>   height $five;\n   --^\n"
+    expected_error = "Error: property \"height\" must be followed by a ':'\n        on line 8 of spec/fixtures/bad_spec.scss\n>>   height $five;\n\n   --^\n"
     file.error.should eq(expected_error)
   end
 end
